@@ -8,7 +8,6 @@ jobs:
       - script:       echo "SUCCESS"
     on_failure:
       - script:       echo "FAILED"
-      - NOTIFY:       <notification resource name>
     on_cancel:
       - script:       echo "CANCEL"
     always:

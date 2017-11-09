@@ -5,10 +5,10 @@ jobs:
       - TASK:
         - script:     ./myjob.sh
     on_success:
-      - script:       echo "SUCCESS"
+      - script:       echo "SUCCESS ey"
     on_failure:
-      - script:       echo "FAILED"
+      - script:       echo "FAILED ey"
     on_cancel:
-      - script:       echo "CANCEL"
+      - script:       echo "CANCEL ey"
     always:
       - script:       pwd

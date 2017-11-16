@@ -20,11 +20,11 @@ env:
     - CODE_COVERAGE_DIR=$SHIPPABLE_REPO_DIR/shippable/codecoverage
     - TESTS_LOC_DIR=$SHIPPABLE_REPO_DIR/tests
     - MOD_LOC=$SHIPPABLE_REPO_DIR/node_modules/.bin/
-  
+
   matrix:
     - M1=ONE
     - M2=TWO
-    - M3=THREE    
+    - M3=THREE
 
 build:
 
@@ -39,3 +39,24 @@ build:
     - $MOD_LOC/istanbul --include-all-sources cover -root "$SHIPPABLE_REPO_DIR/routes" $SHIPPABLE_REPO_DIR/node_modules/mocha/bin/_mocha -- -R spec-xunit-file --recursive "$TESTS_LOC_DIR/**/*.spec.js"
     - $MOD_LOC/istanbul report cobertura --dir $CODE_COVERAGE_DIR
     - popd
+
+resources:
+  - name:           busybox1
+    type:           image
+    pointer:        library/busybox
+    seed:           latest
+
+jobs:
+  - name:           manifestJob1
+    type:           manifest
+    steps:
+      - IN: busybox1
+        versionNumber: 012345678901234567890123
+    on_success:
+      - script:       echo "SUCCESS2"
+    on_failure:
+      - script:       echo "FAILED2"
+    on_cancel:
+      - script:       echo "CANCEL2"
+    always:
+      - script:       pwd

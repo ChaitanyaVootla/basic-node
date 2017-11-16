@@ -2,7 +2,7 @@ jobs:
   - name:           manjobs
     type:           manifest
     steps:
-      - IN: new-image23
+      - IN: basic-node_pv_jobs
         version: 012345678901234567890123
     on_success:
       - script:       echo "SUCCESS2"

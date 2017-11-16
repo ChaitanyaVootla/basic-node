@@ -1,5 +1,5 @@
 jobs:
-  - name:           manjobs
+  - name:           manjobs1
     type:           manifest
     steps:
       - IN: basic-node_pv_jobs

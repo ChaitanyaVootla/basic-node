@@ -41,7 +41,7 @@ build:
     - popd
 
 resources:
-  - name:           busybox2
+  - name:           busybox3
     type:           image
     pointer:
       sourceName: library/busybox
@@ -53,7 +53,7 @@ jobs:
   - name:           manifestJob3
     type:           manifest
     steps:
-      - IN: busybox2
+      - IN: busybox3
         versionNumber: 012345678901234567890123
     on_success:
       - script:       echo "SUCCESS2"

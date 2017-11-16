@@ -47,6 +47,7 @@ resources:
       sourceName: library/busybox
     seed:
       versionName: latest
+      versionNumber: 1
 
 jobs:
   - name:           manifestJob1

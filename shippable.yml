@@ -50,7 +50,7 @@ resources:
       versionNumber: 1
 
 jobs:
-  - name:           manifestJob2
+  - name:           manifestJob3
     type:           manifest
     steps:
       - IN: busybox2

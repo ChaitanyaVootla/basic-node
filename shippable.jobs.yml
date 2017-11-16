@@ -3,7 +3,7 @@ jobs:
     type:           manifest
     steps:
       - IN: new-image23
-        - version: 012345678901234567890123
+        version: 012345678901234567890123
     on_success:
       - script:       echo "SUCCESS2"
     on_failure:

@@ -53,7 +53,7 @@ jobs:
   - name:           manifestJob2
     type:           manifest
     steps:
-      - IN: busybox1
+      - IN: busybox2
         versionNumber: 012345678901234567890123
     on_success:
       - script:       echo "SUCCESS2"

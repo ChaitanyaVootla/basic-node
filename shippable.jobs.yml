@@ -2,6 +2,8 @@ jobs:
   - name:           thejobs
     type:           runSh
     steps:
+      - IN: 
+        - version:    01234567890123456789012
       - TASK:
         - script:     ./myjob.sh
     on_success:

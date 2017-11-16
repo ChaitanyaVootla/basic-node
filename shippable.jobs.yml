@@ -1,9 +1,9 @@
 jobs:
-  - name:           thejobs
-    type:           runSh
+  - name:           manjobs
+    type:           manifest
     steps:
-      - TASK:
-        - script:     ./myjob.sh
+      - IN: new-image23
+        - version: 012345678901234567890123
     on_success:
       - script:       echo "SUCCESS2"
     on_failure:

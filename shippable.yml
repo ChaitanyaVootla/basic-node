@@ -43,8 +43,10 @@ build:
 resources:
   - name:           busybox1
     type:           image
-    pointer:        library/busybox
-    seed:           latest
+    pointer:
+      sourceName: library/busybox
+    seed:
+      versionName: latest
 
 jobs:
   - name:           manifestJob1

@@ -45,6 +45,12 @@ resources:
     seed:
       versionName: latest
       versionNumber: 1
+  - name:            busybox4
+    type:            image
+    pointer:
+      sourceName: library/busybox
+    seed:
+      versionName: latest
 
 jobs:
   - name:           manifestJob5
@@ -57,6 +63,10 @@ jobs:
     steps:
       - TASK:
          - script:  ls
+  - name:           runconinteg
+    type:           runCI
+    steps:
+      - IN: busybox4
 
     on_success:
       - script:       echo "SUCCESS3"

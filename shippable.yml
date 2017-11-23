@@ -51,16 +51,12 @@ jobs:
     type:           manifest
     steps:
       - IN: busybox5
-    on_success:
-      - script:       echo "SUCCESS2"
-    on_failure:
-      - script:       echo "FAILED2"
-    on_cancel:
-      - script:       echo "CANCEL2"
-    always:
-      - script:       pwd
-  - name:           runsh
+
+  - name:           runcommand
     type:           runSh
+    steps:
+      - TASK:       ls
+
     on_success:
       - script:       echo "SUCCESS3"
     on_failure:

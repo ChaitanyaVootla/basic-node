@@ -47,15 +47,16 @@ resources:
       versionNumber: 1
 
 jobs:
+  - name:           nextstep-pipeline
+    type:           runSh
+    steps: 
+      - OUT: nextstep 
   - name:           manifestJob5
     type:           manifest
     steps:
       - IN: busybox5
-      - OUT: nextstep
-  - name:           nextstep-pipeline
-    type:           runSh
-    steps: 
       - IN: nextstep
+  
     on_success:
       - script:       echo "SUCCESS2"
     on_failure:

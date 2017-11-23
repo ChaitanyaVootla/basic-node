@@ -55,7 +55,8 @@ jobs:
   - name:           runcommand
     type:           runSh
     steps:
-      - TASK:       ls
+      - TASK:
+         - script:  ls
 
     on_success:
       - script:       echo "SUCCESS3"

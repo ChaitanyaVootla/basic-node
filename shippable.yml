@@ -64,9 +64,10 @@ jobs:
       - TASK:
          - script:  ls
   - name:           runconinteg
-    type:           runCI
+    type:           runsh
     steps:
-      - IN: busybox4
+      - TASK:
+        - script:   pwd
 
     on_success:
       - script:       echo "SUCCESS3"

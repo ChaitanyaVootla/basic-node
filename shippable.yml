@@ -1,6 +1,11 @@
 # Language setting http://docs.shippable.com/ci/languages/node/
 language: node_js
 
+node_js:
+  - 0.12
+  - 4.8.6
+  - 6.12.0
+
 # use this to control what branches get built.
 # http://docs.shippable.com/ci/advancedOptions/branches/
 branches:
@@ -16,6 +21,11 @@ env:
     - TESTS_LOC_DIR=$SHIPPABLE_REPO_DIR/tests
     - MOD_LOC=$SHIPPABLE_REPO_DIR/node_modules/.bin/
 
+  matrix:
+    - M1=ONE
+    - M2=TWO
+    - M3=THREE
+
 build:
 
   # http://docs.shippable.com/ci/shippableyml/#ci
@@ -30,17 +40,25 @@ build:
     - $MOD_LOC/istanbul report cobertura --dir $CODE_COVERAGE_DIR
     - popd
 
+resources:
+  - name:           busybox4
+    type:           image
+    pointer:
+      sourceName: library/busybox
+    seed:
+      versionName: latest
+      versionNumber: 1
 
-# Integrations are used to connect external resources to CI
-# http://docs.shippable.com/integrations/overview/
-integrations:
-
-  # http://docs.shippable.com/ci/shippableyml/#notifications
-  notifications:
-  # turning of email for PR builds, get notified only on failure and change in status
-  # http://docs.shippable.com/integrations/notifications/email/
-    - integrationName: email
-      type: email
-      on_success: change
-      on_failure: always
-      on_pull_request: never
+jobs:
+  - name:           manifestJob4
+    type:           manifest
+    steps:
+      - IN: busybox4
+    on_success:
+      - script:       echo "SUCCESS2"
+    on_failure:
+      - script:       echo "FAILED2"
+    on_cancel:
+      - script:       echo "CANCEL2"
+    always:
+      - script:       pwd

@@ -1,16 +1,14 @@
 jobs:
-  - name:           thejobs
-    type:           runSh
+  - name:           manjobs1
+    type:           manifest
     steps:
-      - IN: 
-        - version:    01234567890123456789012
-      - TASK:
-        - script:     ./myjob.sh
+      - IN: basic-node_pv_jobs
+        versionNumber: 012345678901234567890123
     on_success:
-      - script:       echo "SUCCESS ey"
+      - script:       echo "SUCCESS2"
     on_failure:
-      - script:       echo "FAILED ey"
+      - script:       echo "FAILED2"
     on_cancel:
-      - script:       echo "CANCEL ey"
+      - script:       echo "CANCEL2"
     always:
       - script:       pwd

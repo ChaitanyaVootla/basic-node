@@ -50,8 +50,8 @@ resources:
       versionNumber: 1
 
 jobs:
-  - name:           manifestJob4
-    type:           manifest
+  - name:           runshjob
+    type:           runSh
     steps:
       - IN: busybox4
     on_success:

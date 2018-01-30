@@ -41,7 +41,7 @@ build:
     - popd
 
 resources:
-  - name:           busybox4
+  - name:           busybox89
     type:           image
     pointer:
       sourceName: library/busybox
@@ -53,7 +53,7 @@ jobs:
   - name:           runshjob
     type:           runSh
     steps:
-      - IN: busybox4
+      - IN: busybox89
     on_success:
       - script:       echo "SUCCESS2"
     on_failure:

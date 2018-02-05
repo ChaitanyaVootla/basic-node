@@ -55,7 +55,7 @@ jobs:
     type:           runSh
     steps:
       - IN: busybox89
-      - IN: basic-node
+      - IN: basic-node_ciRepo
     on_success:
       - script:       echo "SUCCESS2"
     on_failure:

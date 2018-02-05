@@ -55,6 +55,7 @@ jobs:
     type:           runSh
     steps:
       - IN: busybox89
+      - IN: basic-node
     on_success:
       - script:       echo "SUCCESS2"
     on_failure:

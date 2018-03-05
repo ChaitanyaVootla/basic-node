@@ -49,22 +49,7 @@ resources:
       versionName: latest
       versionNumber: 1
 
-
 jobs:
-  - name:           runshjob
-    type:           runSh
-    steps:
-      - IN: busybox89
-      - IN: basic-node_ciRepo
-    on_success:
-      - script:       echo "SUCCESS2"
-    on_failure:
-      - script:       echo "FAILED2"
-    on_cancel:
-      - script:       echo "CANCEL2"
-    always:
-      - script:       pwd
-
   - name: myRunCLIJob
     type: runCLI
     steps:

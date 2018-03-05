@@ -64,3 +64,10 @@ jobs:
       - script:       echo "CANCEL2"
     always:
       - script:       pwd
+
+   - name: myRunCLIJob
+    type: runCLI
+    steps:
+      - IN: busybox89
+      - TASK:
+        - script: ls

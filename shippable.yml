@@ -65,7 +65,7 @@ jobs:
     always:
       - script:       pwd
 
-   - name: myRunCLIJob
+  - name: myRunCLIJob
     type: runCLI
     steps:
       - IN: busybox89

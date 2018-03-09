@@ -18,8 +18,7 @@ describe('/properties route',
                 }
               )
               .expect(200, {
-                  hostAddress: ip.address(),
-                  hostDatetime: new Date().toISOString().substring(0, 4)
+                  hostAddress: ip.address()
                 },
                 done);
           }
